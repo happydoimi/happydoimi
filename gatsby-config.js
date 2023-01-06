@@ -1,15 +1,17 @@
 module.exports = {
   siteMetadata: {
     title: `Frontend Developer Jimin Park`,
-    description: `멋진 프론트 개발자가 되고싶은 지민이에요, 리액트를 공부하고 있어요`,
+    description: `지금은 대치동에서 일하는 멋진 공무원이지만 곧 괴물 프론트 개발자가 될 지민이에요`,
+    smallDescription: `(그리고 1월 8일이 생일이에요)`,
     author: `Jimin Park`,
     siteUrl: `https://github.com/wangonya/flexible-gatsby`,
     social: {
-      twitter: `wang0nya`,
+      twitter: ``,
       facebook: ``,
-      github: `wangonya`,
-      linkedin: `wangonya`,
-      email: `kwangonya@gmail.com`,
+      github: ``,
+      linkedin: ``,
+      blog: `happydoimi`,
+      email: `95jimin@naver.com`,
     },
   },
   plugins: [
@@ -75,7 +77,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `./static/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `./static/mimini-icon.png`, // This path is relative to the root of the site.
       },
     },
     // `gatsby-plugin-offline`,

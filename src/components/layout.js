@@ -15,11 +15,13 @@ const DefaultLayout = ({ children }) => (
           siteMetadata {
             author
             description
+            smallDescription
             social {
               twitter
               facebook
               linkedin
               github
+              blog
               email
             }
           }

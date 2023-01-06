@@ -15,6 +15,7 @@ const Sidebar = ({ siteMetadata }) => (
           </div>
           <div className="author-name">{siteMetadata.author}</div>
           <p>{siteMetadata.description}</p>
+          <small>{siteMetadata.smallDescription}</small>
         </div>
       </header>
       <footer>
@@ -58,6 +59,16 @@ const Sidebar = ({ siteMetadata }) => (
                   target="_blank"
                 >
                   <i className="fa fa-linkedin" aria-hidden="true" />
+                </a>
+              </li>
+            )}
+            {siteMetadata.social.blog && (
+              <li>
+                <a
+                  href={`https://blog.naver.com/${siteMetadata.social.blog}`}
+                  target="_blank"
+                >
+                  <i className="fa fa-sticky-note" aria-hidden="true" />
                 </a>
               </li>
             )}
