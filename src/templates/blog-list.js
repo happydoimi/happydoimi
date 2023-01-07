@@ -15,6 +15,8 @@ class BlogIndex extends React.Component {
     const isLast = currentPage === numPages
     const prevPage = currentPage - 1 === 1 ? '/' : `../${currentPage - 1}`
     const nextPage = `../${currentPage + 1}`
+    const today = new Date();
+    const birthDay = new Date('2023-01-08')
 
     return (
       <DefaultLayout>
@@ -23,7 +25,7 @@ class BlogIndex extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <div className="content-box clearfix">
-          {posts.map(({ node }) => {
+          {today >= birthDay ? posts.map(({ node }) => {
             return (
               <article className="post" key={node.fields.slug}>
                 {node.frontmatter.img &&
@@ -57,7 +59,12 @@ class BlogIndex extends React.Component {
                 </div>
               </article>
             )
-          })}
+          }) 
+          : 
+          <div>
+            <h3>생일이 시작되어야만 편지를 볼 수 있어요</h3>
+            <h4>조금만 기다려 주실래여?</h4>
+          </div>}
           <div className="container">
             <nav className="pagination" role="navigation">
               <ul>
