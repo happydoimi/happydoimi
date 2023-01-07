@@ -17,6 +17,7 @@ class BlogIndex extends React.Component {
     const nextPage = `../${currentPage + 1}`
     const today = new Date();
     const birthDay = new Date('2023-01-08')
+    const availablePosts = data.allMarkdownRemark.edges.slice(1, 2);
 
     return (
       <DefaultLayout>
@@ -25,46 +26,79 @@ class BlogIndex extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <div className="content-box clearfix">
-          {today >= birthDay ? posts.map(({ node }) => {
-            return (
-              <article className="post" key={node.fields.slug}>
-                {node.frontmatter.img &&
-                  node.frontmatter.img.childImageSharp &&
-                  node.frontmatter.img.childImageSharp.gatsbyImageData && (
-                    <Link to={node.fields.slug} className="post-thumbnail">
-                      <GatsbyImage
-                        image={
-                          node.frontmatter.img.childImageSharp.gatsbyImageData
-                        }
-                        className="page-image"
-                        key={
-                          node.frontmatter.img.childImageSharp.gatsbyImageData
-                            .src
-                        }
-                        alt=""
-                      />
-                    </Link>
-                  )}
-                <div className="post-content">
-                  <h2 className="post-title">
-                    <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
-                  </h2>
-                  <p>{node.excerpt}</p>
-                  <span className="post-date">
-                    {node.frontmatter.date}&nbsp;&nbsp;—&nbsp;
-                  </span>
-                  <span className="post-words">
-                    {node.timeToRead} minute read
-                  </span>
-                </div>
-              </article>
-            )
-          }) 
+          {
+            today >= birthDay ? posts.map(({ node }) => {
+              return (
+                <article className="post" key={node.fields.slug}>
+                  {node.frontmatter.img &&
+                    node.frontmatter.img.childImageSharp &&
+                    node.frontmatter.img.childImageSharp.gatsbyImageData && (
+                      <Link to={node.fields.slug} className="post-thumbnail">
+                        <GatsbyImage
+                          image={
+                            node.frontmatter.img.childImageSharp.gatsbyImageData
+                          }
+                          className="page-image"
+                          key={
+                            node.frontmatter.img.childImageSharp.gatsbyImageData
+                              .src
+                          }
+                          alt=""
+                        />
+                      </Link>
+                    )}
+                  <div className="post-content">
+                    <h2 className="post-title">
+                      <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+                    </h2>
+                    <p>{node.excerpt}</p>
+                    <span className="post-date">
+                      {node.frontmatter.date}&nbsp;&nbsp;—&nbsp;
+                    </span>
+                    <span className="post-words">
+                      {node.timeToRead} minute read
+                    </span>
+                  </div>
+                </article>
+              )
+            }) 
           : 
-          <div>
-            <h3>생일이 시작되어야만 편지를 볼 수 있어요</h3>
-            <h4>조금만 기다려 주실래여?</h4>
-          </div>}
+            availablePosts.map(({ node }) => {
+              return (
+                <article className="post" key={node.fields.slug}>
+                  {node.frontmatter.img &&
+                    node.frontmatter.img.childImageSharp &&
+                    node.frontmatter.img.childImageSharp.gatsbyImageData && (
+                      <Link to={node.fields.slug} className="post-thumbnail">
+                        <GatsbyImage
+                          image={
+                            node.frontmatter.img.childImageSharp.gatsbyImageData
+                          }
+                          className="page-image"
+                          key={
+                            node.frontmatter.img.childImageSharp.gatsbyImageData
+                              .src
+                          }
+                          alt=""
+                        />
+                      </Link>
+                    )}
+                  <div className="post-content">
+                    <h2 className="post-title">
+                      <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+                    </h2>
+                    <p>{node.excerpt}</p>
+                    <span className="post-date">
+                      {node.frontmatter.date}&nbsp;&nbsp;—&nbsp;
+                    </span>
+                    <span className="post-words">
+                      {node.timeToRead} minute read
+                    </span>
+                  </div>
+                </article>
+              )
+            }) 
+          }
           <div className="container">
             <nav className="pagination" role="navigation">
               <ul>
